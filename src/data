@@ -1,10 +1,7 @@
-
 // src/data/cards.ts
 
-// 4 rarities we’ll use everywhere
 export type Rarity = "Common" | "Uncommon" | "Rare" | "Legendary";
 
-// Exact drop rates (must sum to 100)
 export const RARITY_WEIGHTS: Record<Rarity, number> = {
   Common: 45,
   Uncommon: 20,
@@ -12,47 +9,59 @@ export const RARITY_WEIGHTS: Record<Rarity, number> = {
   Legendary: 25, // mini-game triggers on this
 };
 
-// Optional: handy ordered list if we need it later
 export const RARITY_LIST: Rarity[] = ["Common", "Uncommon", "Rare", "Legendary"];
-// Type definition for each photocard
+
 export type Card = {
-  id: string;      // unique ID (e.g. "bern-c1")
-  name: string;    // member name (e.g. "Bern")
-  group: string;   // "KATZ"
-  rarity: Rarity;  // Common | Uncommon | Rare | Legendary
-  image: string;   // path to file in /public
+  id: string;
+  name: string;
+  group: string;
+  rarity: Rarity;
+  image: string;
 };
 
-// Example cards — replace with your actual image filenames
-export const CARDS: Card[] = [
-  {
-    id: "bern-c1",
-    name: "Bern",
-    group: "KATZ",
-    rarity: "Common",
-    image: "/katz/photocards/bern-common.png",
-  },
-  {
-    id: "bern-u1",
-    name: "Bern",
-    group: "KATZ",
-    rarity: "Uncommon",
-    image: "/katz/photocards/bern-uncommon.png",
-  },
-  {
-    id: "bern-r1",
-    name: "Bern",
-    group: "KATZ",
-    rarity: "Rare",
-    image: "/katz/photocards/bern-rare.png",
-  },
-  {
-    id: "bern-l1",
-    name: "Bern",
-    group: "KATZ",
-    rarity: "Legendary",
-    image: "/katz/photocards/bern-legendary.png",
-  },
-  // Add the rest of your members here
-];
+// Helper to keep IDs consistent
+const m = (name: string, rarity: Rarity): Card => ({
+  id: `${name}-${rarity[0].toLowerCase()}`, // e.g. "andrea-c", "andrea-l"
+  name: name[0].toUpperCase() + name.slice(1), // display cap
+  group: "KATZ",
+  rarity,
+  image: `/katz/photocards/${name}-${rarity.toLowerCase()}.png`,
+});
 
+export const CARDS: Card[] = [
+  // Andrea
+  m("andrea", "Common"),
+  m("andrea", "Uncommon"),
+  m("andrea", "Rare"),
+  m("andrea", "Legendary"),
+
+  // Honey
+  m("honey", "Common"),
+  m("honey", "Uncommon"),
+  m("honey", "Rare"),
+  m("honey", "Legendary"),
+
+  // Mephi
+  m("mephi", "Common"),
+  m("mephi", "Uncommon"),
+  m("mephi", "Rare"),
+  m("mephi", "Legendary"),
+
+  // Rubi
+  m("rubi", "Common"),
+  m("rubi", "Uncommon"),
+  m("rubi", "Rare"),
+  m("rubi", "Legendary"),
+
+  // Val
+  m("val", "Common"),
+  m("val", "Uncommon"),
+  m("val", "Rare"),
+  m("val", "Legendary"),
+
+  // Yori
+  m("yori", "Common"),
+  m("yori", "Uncommon"),
+  m("yori", "Rare"),
+  m("yori", "Legendary"),
+];

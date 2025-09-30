@@ -1,1 +1,16 @@
 
+// src/data/cards.ts
+
+// 4 rarities we’ll use everywhere
+export type Rarity = "Common" | "Uncommon" | "Rare" | "Legendary";
+
+// Exact drop rates (must sum to 100)
+export const RARITY_WEIGHTS: Record<Rarity, number> = {
+  Common: 45,
+  Uncommon: 20,
+  Rare: 10,
+  Legendary: 25, // mini-game triggers on this
+};
+
+// Optional: handy ordered list if we need it later
+export const RARITY_LIST: Rarity[] = ["Common", "Uncommon", "Rare", "Legendary"];

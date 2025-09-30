@@ -14,3 +14,45 @@ export const RARITY_WEIGHTS: Record<Rarity, number> = {
 
 // Optional: handy ordered list if we need it later
 export const RARITY_LIST: Rarity[] = ["Common", "Uncommon", "Rare", "Legendary"];
+// Type definition for each photocard
+export type Card = {
+  id: string;      // unique ID (e.g. "bern-c1")
+  name: string;    // member name (e.g. "Bern")
+  group: string;   // "KATZ"
+  rarity: Rarity;  // Common | Uncommon | Rare | Legendary
+  image: string;   // path to file in /public
+};
+
+// Example cards — replace with your actual image filenames
+export const CARDS: Card[] = [
+  {
+    id: "bern-c1",
+    name: "Bern",
+    group: "KATZ",
+    rarity: "Common",
+    image: "/katz/photocards/bern-common.png",
+  },
+  {
+    id: "bern-u1",
+    name: "Bern",
+    group: "KATZ",
+    rarity: "Uncommon",
+    image: "/katz/photocards/bern-uncommon.png",
+  },
+  {
+    id: "bern-r1",
+    name: "Bern",
+    group: "KATZ",
+    rarity: "Rare",
+    image: "/katz/photocards/bern-rare.png",
+  },
+  {
+    id: "bern-l1",
+    name: "Bern",
+    group: "KATZ",
+    rarity: "Legendary",
+    image: "/katz/photocards/bern-legendary.png",
+  },
+  // Add the rest of your members here
+];
+
